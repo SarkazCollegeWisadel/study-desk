@@ -1,0 +1,15 @@
+# Only frontend source and documentation belong in this repository.
+/providers.json
+/config.json
+**/providers.json
+**/config.json
+**/.env
+**/.env.*
+**/store/
+**/__pycache__/
+*.log
+*.mp4
+*.webm
+*.jpg
+*.jpeg
+*.png
