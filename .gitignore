@@ -1,15 +1,24 @@
-# Only frontend source and documentation belong in this repository.
-/providers.json
-/config.json
-**/providers.json
+# Credentials and local configuration
 **/config.json
+**/providers.json
 **/.env
 **/.env.*
+!**/.env.example
+*.pem
+*.key
+# Private corpus, generated data and runtime files
+/data/
 **/store/
 **/__pycache__/
+.venv/
+*.py[cod]
 *.log
+*.apkg
+*.colpkg
+*.db
+*.sqlite*
+*.mp3
+*.wav
 *.mp4
 *.webm
-*.jpg
-*.jpeg
-*.png
+_备份_*/

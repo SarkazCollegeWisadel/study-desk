@@ -1,0 +1,42 @@
+{
+  "root": "REPLACE_WITH_ABSOLUTE_DATA_DIRECTORY",
+  "include_ext": [
+    ".md",
+    ".txt",
+    ".csv"
+  ],
+  "include_pdf": true,
+  "skip_pdf_if_md_exists": true,
+  "pdf_include_globs": [],
+  "exclude_dirs": [
+    "kb",
+    ".git",
+    ".venv",
+    "node_modules",
+    "__pycache__"
+  ],
+  "exclude_globs": [
+    "**/config.json",
+    "**/providers.json",
+    "**/.env",
+    "**/.env.*"
+  ],
+  "embed_model": "bge-m3",
+  "embed_batch": 64,
+  "ollama_host": "http://127.0.0.1:11434",
+  "llm_model": "qwen3:14b",
+  "llm_api_base": "",
+  "llm_api_key": "",
+  "chunk": {
+    "max_chars": 800,
+    "min_chars": 150,
+    "overlap": 120,
+    "csv_rows": 12,
+    "merge_max_chars": 1200
+  },
+  "retrieval": {
+    "top_k": 8,
+    "alpha": 0.62,
+    "max_per_file": 3
+  }
+}

@@ -1048,7 +1048,7 @@ body.picker-open,body.source-open{overflow:hidden}
 #pickr .scrim{background:rgba(2,3,8,.78)}
 .pickhead{padding-bottom:15px;border-bottom:1px solid var(--line)}
 .pickhead h2{font-size:30px;letter-spacing:-.03em}
-.pickhead h2::before{content:'SELECT / 学习范围';display:block;font:10px var(--disp);letter-spacing:.16em;color:var(--dim);margin-bottom:9px}
+.pickhead h2::before{content:'SECTOR // ARCHIVE';display:block;font:10px var(--disp);letter-spacing:.16em;color:var(--dim);margin-bottom:9px}
 .pickpath{display:flex;align-items:center;gap:10px;min-height:40px;padding:8px 12px;background:var(--ink2);border-left:2px solid var(--cyan);font-size:12px;flex-wrap:wrap;color:var(--dim)}
 .pickpath b{font-weight:500;color:var(--white)}
 .pickpath .arrow{color:var(--cyan)}
@@ -1232,6 +1232,110 @@ body.in-transit #pointer-guide-canvas{visibility:hidden}
 body.custom-pointer:not(.in-transit):not(.entering-study),body.custom-pointer:not(.in-transit):not(.entering-study) *{cursor:none!important}
 body.entering-study #pointer-guide-canvas{visibility:hidden}
 @media(max-width:560px){#clock-entry .clock-face{width:125vw;height:125vw;margin-left:-62.5vw;margin-top:-62.5vw}#clock-entry .clock-copy{padding:0 8%}}
+
+/* Learning loops: one bounded session, three precise entry points. */
+.drill-entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.drill-entries button{text-align:left;padding:18px;border:1px solid var(--line);border-top:2px solid var(--cyan);background:var(--ink2);color:var(--white)}.drill-entries small{display:block;color:var(--cyan);font:11px monospace;letter-spacing:.15em}.drill-entries strong{display:block;font-size:21px;margin:7px 0}.drill-entries span{color:var(--dim);font-size:12px}
+#drill-dialog{width:min(1100px,94vw);max-height:90vh;padding:0;background:var(--ink);color:var(--white);border:1px solid var(--line)}#drill-dialog::backdrop{background:#04050acb}.drill-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:14px;padding:18px 24px;background:var(--ink2);border-bottom:1px solid var(--line)}.drill-head h2{margin:0;font-size:24px;flex:1}.drill-head small{display:block;color:var(--dim);font:10px monospace}.drill-head button{color:var(--white);font-size:22px}.drill-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 24px;border-bottom:1px solid var(--line)}.drill-controls select{max-width:100%;flex:1}.drill-body{padding:24px}.drill-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.drill-term{position:relative;text-align:left;color:var(--white);padding:16px;border:1px solid var(--line);background:var(--ink2)}.drill-term b{display:block;font-size:18px}.drill-term small{display:block;margin-top:8px;color:var(--dim)}.drill-term .todo{font-size:10px;color:var(--cyan)}.drill-body textarea{width:100%;min-height:150px;margin:14px 0}.drill-body h3{margin:0 0 16px}.drill-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0}.drill-result{margin-top:20px;border-top:1px solid var(--line);padding-top:20px}.drill-result header,.dossier-bar{background:var(--line);border-left:3px solid var(--hot);padding:10px 14px;margin:0 0 16px;position:static;display:flex;align-items:center;gap:15px}.drill-result header b{font-size:20px}.drill-result header small{color:var(--dim)}.diff-text{white-space:pre-wrap;line-height:2.2;font-size:17px}.diff-miss{color:var(--cyan);text-decoration:underline dashed;text-underline-offset:5px}.diff-extra{color:var(--moon);background:transparent;border-bottom:2px solid var(--moon)}.diff-keys{padding:14px 0;font-weight:700}.diff-keys span{display:inline-block;color:var(--cyan);margin:3px 12px 3px 0}.original-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;padding:16px;border-left:2px solid var(--cyan);background:var(--ink2)}.drill-meta{font-size:12px;color:var(--dim)}.drill-question{border-bottom:1px solid var(--line);padding:18px 0}.drill-question h3{font-size:17px;line-height:1.7}.drill-question textarea{min-height:80px}.drill-loading{border-left:3px solid var(--moon);padding:24px;background:var(--ink2)}.drill-loading b{display:block;margin-bottom:12px}.drill-card{border:1px solid var(--line);padding:28px;min-height:260px}.drill-card h3{font-size:24px;line-height:1.6}.drill-rate{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.drill-rate button{width:100%}.drill-next{min-height:28px;color:var(--cyan)}.cause{color:var(--dim)}.cause[data-cause="推链断"]{color:var(--cyan)}.cause[data-cause="桶没记"]{color:#c77bff}.cause[data-cause="措辞偏"]{color:var(--moon)}
+@media(max-width:650px){.drill-entries,.drill-list{grid-template-columns:1fr}.drill-body{padding:16px}.drill-head{padding:14px}.drill-card{padding:18px}.drill-head h2{font-size:20px}}
+
+.court{margin-top:20px;border:1px solid var(--line);position:relative}.court-top{background:var(--line);border-left:3px solid var(--hot);padding:12px 16px;display:flex;justify-content:space-between;gap:12px}.court-top small{color:var(--dim)}.court-lines{margin:0;padding:20px 20px 20px 52px}.court-lines li{padding:12px;border-bottom:1px solid var(--line);position:relative;line-height:1.8}.court-lines li.broken{border-left:3px solid var(--err)}.court-seal{display:inline-block;border:3px double currentColor;color:var(--err);font-weight:900;letter-spacing:.12em;padding:6px 12px;transform:rotate(-5deg);margin:10px}.court-seal.upheld{color:var(--cyan)}.court-testimony{padding:20px;border-top:2px solid var(--cyan);line-height:1.9;min-height:100px}.court-testimony p{white-space:pre-wrap;margin:8px 0}.court-reason{padding:16px;background:var(--ink2);border-top:1px solid var(--line)}.court-impact::after{content:'';position:absolute;inset:0 0 auto;height:3px;background:var(--hot)}
+
+.joblog{max-height:300px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.8 monospace;padding:16px}#kb-jobstatus{margin-top:16px}.proxy-panel{margin:24px 0}.proxy-panel .dossier-bar{justify-content:space-between}.proxy-ports{display:flex;gap:16px;flex-wrap:wrap}.proxy-ports p{border-bottom:1px solid var(--line);padding:10px}.proxy-ports b{font-size:23px;color:var(--cyan)}
+
+/* P6: archive typography, limited to dense information regions. */
+:root{--dossier-heading:#292e40}.progress-title{grid-column:1/-1;margin:0;font-size:13px;letter-spacing:.15em}.dossier-bar,.drill-result header,.court-top{background:var(--dossier-heading)}.strip{row-gap:20px}.strip .rate{font-size:44px}.strip .lab{letter-spacing:.03em}.pickpath{background:var(--dossier-heading);border-left:3px solid var(--hot);padding:13px 16px}.pickhead h2::before{font-family:monospace;letter-spacing:.2em}.pickhead h2{font-family:var(--body);font-size:32px}#v-model>h3{background:var(--dossier-heading);border-left:3px solid var(--hot);padding:11px 14px;color:var(--white)!important;margin:24px 0 12px!important;letter-spacing:.1em!important}.role .rn{font-size:15px;letter-spacing:.16em}.role .rd::before{content:'【职责】';color:var(--dim)}.mod .mm::before{content:'【模型】';color:var(--dim)}.mod .nt::before{content:'【说明】';color:var(--dim)}.drill-head small{letter-spacing:.2em;margin-bottom:7px}.drill-head h2{line-height:1.4}.drill-result header small{font-size:13px}.drill-result header b{font-size:27px}
+
+.background-player{position:fixed;left:-10000px;top:0;width:320px;height:180px;opacity:.01;pointer-events:none;z-index:99}.background-player iframe{width:100%;height:100%;border:0}.background-player.player-visible{left:auto;right:20px;top:auto;bottom:240px;opacity:1;pointer-events:auto;box-shadow:0 0 0 1px var(--cyan)}.mu-panel{max-width:calc(100vw - 32px);width:460px}.mu-row{flex-wrap:wrap}.mu-row input{min-width:180px;flex:1}#mu-toggle{touch-action:manipulation}
+
+/* P8: all information surfaces share theme tokens; navigation artwork retains its palette. */
+:root[data-theme="light"]{--dossier-heading:#dce2eb}
+:root[data-theme="light"] .model-menu{background:var(--ink2);color:var(--white);border-color:var(--line);box-shadow:6px 8px 0 #a7b7da66;scrollbar-color:var(--blue) var(--ink3)}
+:root[data-theme="light"] .model-menu-head{color:var(--cyan);border-color:var(--line)}
+:root[data-theme="light"] .model-option{border-color:var(--line)}:root[data-theme="light"] .model-option small{color:var(--dim)}:root[data-theme="light"] .model-option[aria-selected=true]{background:var(--blue-dim)}:root[data-theme="light"] .model-option:hover,:root[data-theme="light"] .model-option:focus{background:var(--blue);color:#fff}:root[data-theme="light"] .model-trigger[aria-expanded=true]{background:var(--blue-dim)}
+:root[data-theme="light"] #st-run textarea,:root[data-theme="light"] #st-run .panel,:root[data-theme="light"] .court,:root[data-theme="light"] .drill-card,:root[data-theme="light"] .drill-term{background:var(--ink2);color:var(--white)}:root[data-theme="light"] .drill-result header,:root[data-theme="light"] .court-top,:root[data-theme="light"] #st-run .panel>h3{background:var(--dossier-heading)}:root[data-theme="light"] .run-index button[aria-current=step]{background:var(--blue-dim)}
+:root[data-theme="light"] .cause[data-cause="桶没记"]{color:var(--tong)}:root[data-theme="light"] .court-seal{color:#b81e3a}:root[data-theme="light"] .court-seal.upheld{color:var(--cyan)}
+:root[data-theme="light"] #pickr .sheet{background:var(--ink)}:root[data-theme="light"] #deck-detail,:root[data-theme="light"] .pickfoot{color:var(--white);background:var(--ink2)}
+:root[data-theme="light"] .mu-panel{background:var(--ink2);color:var(--white)}:root[data-theme="light"] .drill-loading,:root[data-theme="light"] .original-text,:root[data-theme="light"] .court-reason{background:var(--ink3)}
+body.custom-pointer:not(.in-transit):not(.entering-study) dialog[open],body.custom-pointer:not(.in-transit):not(.entering-study) dialog[open] *{cursor:auto!important}
+#drill-dialog button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(max-width:650px){.drill-result header{flex-wrap:wrap}.court-top{flex-wrap:wrap}.court-lines{padding-left:34px}.court-seal{font-size:13px}.proxy-ports{gap:6px}.progress-title{grid-column:1/-1}}
+
+/* Anki preparation is separate from the study-desk review scheduler. */
+.anki-entry{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0 22px;border-bottom:1px solid var(--line);margin-bottom:24px}.anki-entry p{margin:0;color:var(--dim);font-size:12px}.anki-entry b{color:var(--cyan);margin-right:14px;font:12px monospace}
+#anki-dialog{width:min(1180px,95vw);max-height:92vh;padding:0;background:var(--ink);color:var(--white);border:1px solid var(--line)}#anki-dialog::backdrop{background:#04050ad9}.anki-layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:28px;padding:24px}.anki-setup{font-size:13px;line-height:1.9}.anki-setup h3{font-size:17px;margin:0 0 16px}.anki-setup p{color:var(--dim)}.anki-count{font-size:44px;line-height:1.2;font-weight:800;margin:16px 0;color:var(--white)}.anki-count small{font-size:12px;color:var(--dim);font-weight:normal}.anki-setup ol{padding-left:20px}.anki-setup li{margin:14px 0}.anki-setup a{color:var(--cyan)}.anki-setup .b{margin:4px 0}.anki-templates{border-top:1px solid var(--line);margin-top:22px;padding-top:16px}.anki-templates .b{margin-right:5px}.anki-preview{min-width:0}.anki-preview label{display:block;font-size:12px;color:var(--dim);margin-bottom:8px}.anki-preview select{width:100%;min-width:0;margin-bottom:14px;background:var(--ink2);color:var(--white);border:1px solid var(--line);padding:12px;color-scheme:dark}:root[data-theme="light"] .anki-preview select{color-scheme:light}.anki-preview iframe{display:block;width:100%;height:560px;border:1px solid var(--line);background:var(--ink)}.anki-preview .drill-actions{justify-content:space-between}.anki-preview .drill-actions span{font-size:12px;color:var(--dim)}#anki-status{font-size:12px;min-height:24px;color:var(--cyan)}
+@media(max-width:750px){.anki-layout{grid-template-columns:1fr;padding:16px;gap:20px}.anki-entry{align-items:flex-start;flex-direction:column}.anki-preview iframe{height:510px}.anki-layout .anki-preview{grid-row:1}.anki-setup{border-top:1px solid var(--line);padding-top:20px}}
+
+/* 2026-09-29: let the study choices lead; artwork remains a location cue. */
+#construct{opacity:.72}
+#construct .plane,#construct .plane-back,#construct .plane-paper{opacity:.4}
+#construct .contour,#construct .base-axis{opacity:.5}
+#bgmark{opacity:.42}
+#v-unit .page-heading{min-height:148px;padding-top:22px;margin-bottom:10px}
+#v-unit .page-heading .intro{background:var(--ink2);border-left-color:var(--cyan)}
+.drill-entries{gap:10px;margin:12px 0 0}
+.drill-entries button{position:relative;min-height:112px;padding:16px 18px 14px;border:1px solid var(--line);border-left:2px solid var(--blue);background:var(--ink2);transition:background .18s,border-color .18s}
+.drill-entries button:hover,.drill-entries button:focus-visible{background:var(--ink3);border-color:var(--cyan);outline:none}
+.drill-entries small{color:var(--dim);font-size:10px;letter-spacing:.11em}
+.drill-entries strong{font-size:20px;line-height:1.25;margin:10px 0 6px}
+.drill-entries span{display:block;line-height:1.5}
+.anki-entry{margin:10px 0 22px;padding:12px 16px;background:var(--ink2);border:1px solid var(--line);border-left:2px solid var(--cyan)}
+.anki-entry p{line-height:1.6}
+.anki-entry b{display:inline-block;margin-right:12px;white-space:nowrap}
+.anki-entry .b{white-space:nowrap}
+.hero{grid-template-columns:176px minmax(0,1fr);box-shadow:6px 6px 0 #101e4b}
+.hero-index{min-height:300px;background:linear-gradient(155deg,#102658,#0a1535 72%);border-right:1px solid var(--poster-line)}
+.hero-index::before{width:228px;height:228px;right:-156px;top:-94px;border:1px solid #8aaeff;opacity:.55}
+.hero-index::after{display:none}
+.hero .num{font-size:clamp(116px,10vw,146px);color:#e4edff}
+.hero-index .index-label{background:var(--blue2)}
+.hero-index .index-total{background:none;padding:0;color:#b9caf5}
+.hero-in{padding:30px 34px}
+.hero .qtext{font-size:clamp(28px,2.55vw,38px);line-height:1.48}
+.strip{border:1px solid var(--line);border-left:3px solid var(--blue);padding:16px 20px 20px}
+.strip .progress-title{margin-bottom:0}
+.queue{margin-top:14px}
+.qrow .n{background:var(--ink3);border-left:2px solid var(--blue);min-width:44px;color:var(--white)}
+.qrow:hover .n,.qrow:focus-visible .n{border-left-color:var(--cyan);color:var(--cyan)}
+:root[data-theme="light"] .hero{box-shadow:6px 6px 0 #b8c7ef}
+:root[data-theme="light"] .hero-index{background:linear-gradient(155deg,#244cc0,#122b72 72%)}
+:root[data-theme="light"] .qrow .n{background:var(--ink3)}
+@media(max-width:700px){
+  #construct{opacity:.5}
+  #bgmark{opacity:.3}
+  #v-unit .page-heading{min-height:124px;padding-top:18px;margin-bottom:4px}
+  .hero{grid-template-columns:125px minmax(0,1fr)}
+  .hero-index{min-height:0}
+}
+@media(max-width:650px){
+  .drill-entries{grid-template-columns:1fr;gap:8px;margin:10px 0 0}
+  .drill-entries button{display:grid;grid-template-columns:46px minmax(0,1fr) 22px;grid-template-rows:auto auto;column-gap:10px;align-items:center;min-height:74px;padding:10px 12px}
+  .drill-entries small{grid-column:1;grid-row:1/3;align-self:center;font-size:9px;line-height:1.4;letter-spacing:.04em;overflow-wrap:anywhere}
+  .drill-entries strong{grid-column:2;grid-row:1;margin:0;font-size:17px}
+  .drill-entries span{grid-column:2;grid-row:2;font-size:11px}
+  .drill-entries button::after{content:'↗';grid-column:3;grid-row:1/3;justify-self:end;color:var(--cyan);font-size:17px}
+  .anki-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 12px;margin:10px 0 18px}
+  .anki-entry p{font-size:11px}
+  .anki-entry b{display:block;margin:0 0 2px;font-size:9px}
+  .anki-entry .b{font-size:11px;padding:9px 10px}
+}
+@media(max-width:560px){
+  #construct .plane,#construct .plane-back,#construct .plane-paper{opacity:.28}
+  #v-unit .page-heading{min-height:112px;padding-top:12px}
+  #v-unit .page-heading h2{font-size:38px}
+  #v-unit .page-heading .intro{font-size:10px;padding:6px 8px;max-width:130px}
+  .hero{grid-template-columns:1fr;box-shadow:4px 4px 0 #101e4b}
+  .hero-index{display:flex;flex-direction:row;align-items:center;gap:12px;min-height:0;padding:11px 16px;border-right:0;border-bottom:1px solid var(--poster-line)}
+  .hero-index::before{width:120px;height:120px;right:-35px;top:-70px}
+  .hero .num{font-size:43px;line-height:1;margin:0 0 0 auto}
+  .hero-index .index-total{margin-left:0}
+  .hero-in{padding:22px 18px}
+  .hero .qtext{font-size:clamp(24px,7vw,29px)}
+  .strip{padding:13px 15px 18px}
+  .queue{padding:14px 12px}
+  .qrow .n{min-width:40px}
+  :root[data-theme="light"] .hero{box-shadow:4px 4px 0 #b8c7ef}
+}
+
 </style>
 <script>
 /* ============================================================
@@ -1522,7 +1626,9 @@ void main(){
     </div>
 
     <div id="pick-main">
-      <div class="page-heading" data-poster="QUESTION"><div><span class="eyebrow">U-1 / DAILY STUDY</span><h2>今日单元</h2></div><p class="intro"><b>一个问题，一条推理链。</b><br>20 分钟，从这里开始。</p></div>
+      <div class="page-heading" data-poster="QUESTION"><div><span class="eyebrow">SECTOR // UNIT</span><h2>今日单元</h2></div><p class="intro"><b>一个问题，一条推理链。</b><br>20 分钟，从这里开始。</p></div>
+<div class="drill-entries" aria-label="学习练习入口"><button data-drill="mingjie"><small>01 / WORDING</small><strong>名解回译</strong><span>先默写，再逐字对照教材</span></button><button data-drill="scan"><small>02 / COVERAGE</small><strong>缺口扫描</strong><span>十题一轮 · 找未推到的边角</span></button><button data-drill="cards"><small>03 / RECALL</small><strong>桶卡抽背</strong><span>五张一轮 · 先答再翻面</span></button></div>
+<div class="anki-entry"><p><b>ANKI / RECALL</b>在 Anki 里复习 · 先核对卡面，再导入</p><button class="b" id="anki-open">Anki 卡片工作台 ↗</button></div>
       <div class="hudbar">
         <span class="k">RI//DARK-HOUR</span>
         <span id="hb-sector">SECTOR —</span>
@@ -1552,13 +1658,13 @@ void main(){
         </div>
       </div>
 
-      <div class="strip">
+      <div class="strip"><div class="dossier-bar progress-title">学习进度 · PROGRESS</div>
         <div>
-          <span class="lab">最近 14 天</span>
+          <span class="lab">【最近 14 天】</span>
           <div class="moons" id="moons"></div>
         </div>
         <div>
-          <span class="lab">进入率</span>
+          <span class="lab">【进入率】</span>
           <div class="rate" id="s-enter">–</div>
         </div>
         <div class="covwrap" id="cov"></div>
@@ -1698,7 +1804,7 @@ void main(){
 
 <!-- ======================= 模型 ======================= -->
 <section class="view" id="v-model" hidden>
-  <div class="page-heading" data-poster="MODEL"><div><span class="eyebrow">M-3 / MODEL ROLES</span><h1>各司其职</h1></div><p class="intro">抛问、检索、证伪，按角色配置模型。</p></div>
+  <div class="page-heading" data-poster="MODEL"><div><span class="eyebrow">SECTOR // MODEL</span><h1>各司其职</h1></div><p class="intro">抛问、检索、证伪，按角色配置模型。</p></div>
   <h3 style="font-family:var(--disp);letter-spacing:.2em;font-size:13px;color:var(--cyan);margin:0 0 4px">
     角色分工</h3>
   <div class="hint">一个角色 = 一种活。换模型只改这里，别的地方不用动。</div>
@@ -1767,11 +1873,20 @@ void main(){
       <input type="text" class="wide" id="kb-pdfglobs" placeholder="PDF 白名单，逗号分隔；留空＝全部 PDF">
       <input type="text" class="wide" id="kb-exglobs" placeholder="排除规则，逗号分隔">
     </div>
-    <div class="joblog" id="kb-joblog">（还没跑过）</div>
+    <div id="kb-jobstatus" class="dossier-bar" role="status">重建任务 · 尚未运行</div><div class="joblog" id="kb-joblog" role="log" aria-label="索引重建日志">（还没跑过）</div>
   </div>
 </section>
 
 </div>
+
+
+<dialog id="anki-dialog" aria-labelledby="anki-title">
+  <div class="drill-head"><h2 id="anki-title"><small>ANKI / CARD WORKSPACE</small>卡片，有来处。</h2><button class="b" id="anki-close" aria-label="关闭 Anki 工作台">×</button></div>
+  <div class="anki-layout">
+    <section class="anki-setup"><h3>原创示例卡</h3><div class="anki-count">1 <small>张 / 开源演示</small></div><div class="dossier-bar">卡面模板已准备</div><p>公开版本只含原创示例卡与卡面模板；个人卡片和教材内容请在本机配置。</p><button class="b go" id="anki-package">个人卡包不随源码发布</button><p>导入与同步状态：未核验。学习台的抽背记录不会自动同步到 Anki。</p><ol><li>使用下方模板在自己的 Anki 笔记类型中配置卡面，先检查正反面与来源。</li><li>已有同名卡时核对导入预览；不要为了换样式删除旧牌组。</li><li>在 Anki 内完成同步，再到 <a href="https://ankiweb.net/decks" target="_blank" rel="noopener noreferrer">AnkiWeb 复习 ↗</a>。首次遇到上传／下载选择时，先确认哪端数据完整。</li></ol><div class="anki-templates"><b>单独取用模板</b><p>仅适用于相同五字段的笔记类型；修改前先备份现有模板。</p><button class="b sm" data-anki-file="front">正面</button><button class="b sm" data-anki-file="back">背面</button><button class="b sm" data-anki-file="css">样式 CSS</button></div><p id="anki-status" role="status"></p></section>
+    <section class="anki-preview"><label for="anki-card-select">卡面预览 · 不计入复习，不改变进度</label><select id="anki-card-select" class="mini" aria-label="选择预览卡片"></select><iframe id="anki-preview-frame" sandbox="" title="Anki 卡片正面预览"></iframe><div class="drill-actions"><button class="b sm" id="anki-prev">← 上一张</button><button class="b go" id="anki-flip">翻面 · 核对答案</button><button class="b sm" id="anki-next">下一张 →</button></div><p class="drill-meta" id="anki-position"></p></section>
+  </div>
+</dialog>
 
 <!-- 选课覆盖层 -->
 <div id="pickr" role="dialog" aria-modal="true" aria-labelledby="pick-title">
@@ -1795,7 +1910,7 @@ void main(){
     <div class="pickfoot">
       <button class="b go" id="pk-spark"><span>✦ 让模型按这个范围抛一个问</span></button>
       <button class="b" id="pk-use"><span>用选中的条目</span></button>
-      <button class="b" id="pk-quiz"><span>出 5 题扫缺口</span></button>
+      <button class="b" id="pk-quiz"><span>十题缺口扫描</span></button>
       <span class="hint" id="pk-hint">先选科目 → 再选章 → 可以直接点某个单元或缺口条目</span>
     </div>
     <div id="pk-out"></div>
@@ -1822,11 +1937,11 @@ void main(){
 <div id="music">
   <button class="iconbtn" id="mu-toggle" title="背景音乐">♬</button>
   <div class="mu-panel" id="mu-panel" hidden>
-    <div class="mu-h">网易云 · 外链播放器</div>
+    <div class="mu-h">背景音乐 · 外链播放</div>
     <div class="mu-row">
-      <select class="mini" id="mu-type"><option value="2">歌单</option><option value="0">单曲</option>
+      <select class="mini" id="mu-type"><option value="2">单曲</option><option value="0">歌单</option>
         <option value="1">专辑</option></select>
-      <input type="text" id="mu-id" placeholder="ID，例如 2657399647">
+      <input type="text" id="mu-id" placeholder="网易云 / B站链接，或 BV 号" aria-label="音乐或视频链接">
       <button class="b sm" id="mu-go"><span>挂上</span></button>
     </div>
     <div class="mu-hint">在网易云网页版打开歌单，地址栏 <code>?id=</code> 后面那串数字就是。
@@ -1835,6 +1950,7 @@ void main(){
   </div>
 </div>
 
+<dialog id="drill-dialog" aria-labelledby="drill-title"><div class="drill-head"><h2 id="drill-title"></h2><span id="drill-clock">20:00</span><button id="drill-close" aria-label="关闭练习">×</button></div><div class="drill-controls"><label for="drill-subject">【科目】</label><select class="mini" id="drill-subject"></select><span id="drill-mode" class="drill-meta"></span></div><div id="drill-body" class="drill-body"></div></dialog>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -1852,6 +1968,8 @@ function save(o){try{localStorage.setItem(LS,JSON.stringify(o))}catch(e){}}
 function load(){try{return JSON.parse(localStorage.getItem(LS)||'null')}catch(e){return null}}
 function wipe(){try{localStorage.removeItem(LS)}catch(e){}}
 async function api(path,body){
+  const dry=new URLSearchParams(location.search).get('dry')==='1'||location.hash==='#dry';
+  if(body&&dry){if(!['/api/query','/api/llm/ask','/api/llm/probe','/api/llm/spark'].includes(path))return {error:'试运行已拦截此写入操作。'};body={...body,dry:true,save:false};}
   const o=body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'};
   const r=await fetch(path,o); return r.json();
 }
@@ -2097,9 +2215,10 @@ function stagger(sel){
 /* ============================================================
    HUD：光线引导 / 十字准线 / 分层透视 / 磁吸 / 冲击波 / 音效
    ============================================================ */
-const SFX={on:true,ctx:null};
+// 2026-09-23: sound is opt-in; custom pointer retained by explicit user decision.
+const SFX={on:false,ctx:null};
 (function initSfx(){
-  try{SFX.on=localStorage.getItem('kb.sfx')!=='0'}catch(e){}
+  try{SFX.on=localStorage.getItem('kb.sfx')==='1'}catch(e){}
   const btn=$('#soundbtn');
   const paint=()=>{btn.textContent=SFX.on?'♪':'♪̸';btn.style.color=SFX.on?'var(--cyan)':'';};
   paint();
@@ -2569,17 +2688,55 @@ $('#pk-spark').onclick=async()=>{
   }catch(e){$('#pk-out').innerHTML=`<div class="warnbox">${esc(String(e))}</div>`;}
   finally{btn.disabled=false;}
 };
-$('#pk-quiz').onclick=async()=>{
-  if(!PICK.subject){toast('先选科目');return;}
-  $('#pk-out').innerHTML='<div class="hint"><span class="spin"></span> 出题中…</div>';
-  let hint='';
-  if(PICK.item&&PICK.item.file){
-    const h=await api('/api/unit/hint?file='+encodeURIComponent(PICK.item.file));hint=h.text||'';}
-  const d=await api('/api/llm/quiz',{scope:scopeText(),subject:PICK.subject,hint:hint});
-  if(d.error){$('#pk-out').innerHTML=`<div class="warnbox">${esc(d.error)}</div>`;return;}
-  $('#pk-out').innerHTML=`<div class="ansbox"><div class="ah">扫缺口 · 5 题
-    <em>${esc(d.meta.label)} · ${d.meta.ms}ms</em></div>${md(d.text)}</div>`;
+$('#pk-quiz').onclick=()=>{closePick();openDrill('scan');};
+
+/* P1: API-backed learning loops. Test mode never silently writes. */
+const DRILL_DRY=new URLSearchParams(location.search).get('dry')==='1'||location.hash==='#dry';
+let DR=null;
+const drillSessions=new Map();
+function drillSession(mode,subject){return {mode,subject,revision:0,items:[],round:null,cards:[],at:0,deadline:Date.now()+20*60*1000,timer:null,opener:null,body:document.createElement('div'),drafts:new Map(),busy:false,scroll:0,focus:null};}
+function drillQuery(s){return selector=>selector==='#drill-body'?s.body:s.body.querySelector(selector);}
+function finishDrill(s){if(DR!==s)return;drillSessions.delete(s.mode);closeDrill();}
+function clearDrillError(s){s.body.querySelectorAll('.warnbox').forEach(e=>e.remove());}
+function drillControls(s){if(DR===s)document.querySelector('#drill-subject').disabled=s.busy;}
+async function learningAPI(path,body){
+  if(DRILL_DRY&&(path.endsWith('/cards/rate')||path==='/api/kb/reindex')&&location.hostname!=='study-ui.test')throw Error('此接口不支持试运行；未发送、未写入，请用隔离接口验收。');
+  const payload=body?{...body,...(DRILL_DRY?{dry:true,save:false}:{})}:undefined;
+  const response=await fetch(path,payload?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}:{cache:'no-store'});
+  const data=await response.json();if(!response.ok||data.error)throw Error(data.error||'请求失败 '+response.status);return data;
+}
+function diffHTML(d){return '<div class="diff-keys">关键漏项 '+((d.key_miss||[]).map(x=>'<span>【'+esc(x.kind)+'】'+esc(x.s)+'</span>').join('')||'<span>无</span>')+'</div><div class="diff-text">'+(d.segments||[]).map(x=>'<span class="diff-'+(['eq','miss','extra'].includes(x.t)?x.t:'eq')+'">'+esc(x.s)+'</span>').join('')+'</div><p class="drill-meta">青色虚线：漏写　黄色：多写</p><h4>教材原句</h4><div class="original-text">'+esc(d.original||'')+'</div><p class="drill-meta">【出处】'+esc(d.source||'未提供')+'</p>';}
+function drillError(e,s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];clearDrillError(s);const box=document.createElement('div');box.className='warnbox';box.setAttribute('role','alert');box.textContent=e.message||String(e);$('#drill-body').append(box);}
+function drillClock(){const n=Math.max(0,Math.ceil((DR.deadline-Date.now())/1000));$('#drill-clock').textContent=n?String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0'):'20 分钟已到 · 可提交本轮';}
+function drillBusy(label,estimate,s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const b=$('#drill-body');b.innerHTML='<div class="drill-loading" role="status"><b>'+esc(label)+'</b><span>通常约 '+estimate+' 秒 · 已等待 <em>0</em> 秒</span><p>请求仍在进行，请勿重复提交。</p></div>';const started=Date.now(),el=b.querySelector('em');const t=setInterval(()=>{el.textContent=Math.floor((Date.now()-started)/1000)},1000);return ()=>clearInterval(t);}
+async function openDrill(mode){
+  const subjects=[...new Set([...(STATE.subjects||[]),...TREE.map(x=>x.subject)])];
+  let s=drillSessions.get(mode);const fresh=!s;
+  if(!s){const subject=subjects.includes(PICK.subject)?PICK.subject:mode==='scan'?(subjects[0]||''):'';s=drillSession(mode,subject);drillSessions.set(mode,s);}
+  DR=s;s.opener=document.activeElement;clearInterval(s.timer);s.timer=setInterval(drillClock,1000);
+  $('#drill-title').innerHTML='<small>UNIT / PRACTICE</small>'+({mingjie:'名解回译',scan:'缺口扫描',cards:'桶卡抽背'}[mode]);
+  $('#drill-mode').textContent=(DRILL_DRY?'试运行 · 不写学习数据':'完成后记录本次练习')+' · 关闭可续，刷新清除暂存';
+  $('#drill-subject').replaceChildren();for(const name of (mode==='scan'?subjects:['全部科目',...subjects])){const o=document.createElement('option');o.value=name==='全部科目'?'':name;o.textContent=name;$('#drill-subject').append(o);}
+  $('#drill-subject').value=s.subject;$('#drill-body').replaceChildren(s.body);drillControls(s);drillClock();
+  if(!$('#drill-dialog').open)$('#drill-dialog').showModal();
+  if(fresh)await loadDrill(s);
+  if(DR===s&&$('#drill-dialog').open){$('#drill-dialog').scrollTop=s.scroll;if(s.focus&&s.body.contains(s.focus))s.focus.focus({preventScroll:true});}
+}
+function closeDrill(){const s=DR;s.scroll=$('#drill-dialog').scrollTop;s.focus=s.body.contains(document.activeElement)?document.activeElement:null;clearInterval(s.timer);$('#drill-dialog').close();s.opener?.focus({preventScroll:true});}
+$('#drill-close').onclick=closeDrill;$('#drill-dialog').addEventListener('cancel',e=>{e.preventDefault();closeDrill()});
+$('#drill-subject').onchange=()=>{
+  const old=DR,subject=$('#drill-subject').value;
+  if(old.busy||!confirm('更换科目会清除当前入口暂存的作答与进度，继续？')){$('#drill-subject').value=old.subject;return;}
+  clearInterval(old.timer);const s=drillSession(old.mode,subject);s.opener=old.opener;DR=s;drillSessions.set(s.mode,s);$('#drill-body').replaceChildren(s.body);s.timer=setInterval(drillClock,1000);drillClock();loadDrill(s);
 };
+$$('[data-drill]').forEach(b=>b.onclick=()=>openDrill(b.dataset.drill));
+async function loadDrill(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const revision=++s.revision,subject=s.subject;$('#drill-body').innerHTML='<div role="status">读取中…</div>';try{if(s.mode==='scan'){$('#drill-body').innerHTML='<h3>十题，扫描你没推到的地方。</h3><p class="drill-meta">一次给齐题目，交卷后再展示答案；未作答按空答处理。</p><button class="b go" id="scan-start">开一轮 · 10 题</button>';$('#scan-start').onclick=()=>startScan(s);return;}const d=await learningAPI('/api/unit/drill/'+s.mode+'?subject='+encodeURIComponent(subject)+(s.mode==='cards'?'&n=5':''));if(revision!==s.revision)return;if(s.mode==='mingjie'){s.items=d.items||[];drawTerms(s);}else{s.cards=d.cards||[];s.at=0;s.counts=d;drawCard(s);}}catch(e){if(revision===s.revision){$('#drill-body').innerHTML='<button class="b" id="drill-retry">重新读取</button>';$('#drill-retry').onclick=()=>loadDrill(s);drillError(e,s);}}}
+function drawTerms(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];$('#drill-body').innerHTML='<p class="drill-meta">【术语】'+s.items.length+' 个 · 原句在提交后显示</p><div class="drill-list">'+s.items.map((x,i)=>'<button class="drill-term" data-term="'+i+'"><b>'+esc(x.term)+'</b><small>'+esc(x.subject)+' · 练过 '+Number(x.tries||0)+' 次 · '+esc(x.last?.verdict||'未练')+'</small>'+(x.gap_todo?'<span class="todo">◩ 待扫缺口</span>':'')+'</button>').join('')+'</div>';if(!s.items.length)$('#drill-body').append('本科目暂无可练术语。');$$('[data-term]').forEach(b=>b.onclick=()=>writeTerm(s.items[+b.dataset.term],s));}
+function writeTerm(item,s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];$('#drill-body').innerHTML='<h3>'+esc(item.term)+'</h3><p class="drill-meta">【科目】'+esc(item.subject)+'　【出处】'+esc(item.source)+'</p><label for="recall-text">先用自己的记忆写出整句</label><textarea id="recall-text"></textarea><div class="drill-actions"><button class="b go" id="recall-check">提交回译</button><button class="b" id="recall-back">返回术语</button></div><div id="recall-result" aria-live="polite"></div>';$('#recall-text').value=s.drafts.get(item.id)||'';$('#recall-text').oninput=()=>s.drafts.set(item.id,$('#recall-text').value);$('#recall-text').focus();$('#recall-back').onclick=()=>drawTerms(s);$('#recall-check').onclick=async()=>{const text=$('#recall-text').value;if(!text.trim()){toast('先默写整句');return;}clearDrillError(s);const rev=s.revision,btn=$('#recall-check');btn.disabled=true;$('#recall-back').disabled=true;s.busy=true;drillControls(s);$('#recall-result').textContent='正在逐字比对…';try{const d=await learningAPI('/api/unit/drill/mingjie/check',{id:item.id,text});if(rev!==s.revision)return;$('#recall-result').innerHTML='<section class="drill-result"><header><b>'+esc(d.verdict)+'</b><small>【原句覆盖】'+Math.round(d.recall*100)+'%</small></header>'+diffHTML(d)+'</section>';btn.hidden=true;if(!DRILL_DRY){item.tries=(item.tries||0)+1;item.last={verdict:d.verdict};}}catch(e){if(rev===s.revision){$('#recall-result').textContent='';drillError(e,s);}}finally{btn.disabled=false;const back=$('#recall-back');if(back)back.disabled=false;s.busy=false;drillControls(s);}};}
+async function startScan(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const subject=s.subject;if(!subject){toast('先选科目');return;}const rev=++s.revision,stop=drillBusy('正在准备十题',6,s);s.busy=true;drillControls(s);try{const d=await learningAPI('/api/llm/scan/start',{subject,n:10,dry:DRILL_DRY});if(rev!==s.revision)return;s.round=d;drawScan(s);}catch(e){if(rev===s.revision){$('#drill-body').innerHTML='<button class="b" id="scan-retry">重新开一轮</button>';$('#scan-retry').onclick=()=>startScan(s);drillError(e,s);}}finally{stop();s.busy=false;drillControls(s);}}
+function drawScan(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const d=s.round;$('#drill-body').innerHTML='<p class="drill-meta">【本轮】'+esc(d.round_id)+' · '+d.questions.length+' 题 · 答案交卷后显示</p>'+d.questions.map((q,i)=>'<section class="drill-question"><h3>'+esc(q.n)+'. 【'+esc(q.type)+'】'+esc(q.q)+'</h3><label class="drill-meta" for="scan-a-'+i+'">你的作答</label><textarea id="scan-a-'+i+'"></textarea></section>').join('')+'<button class="b go" id="scan-submit">交卷 · 扫描缺口</button>';$('#scan-submit').onclick=()=>gradeScan(s);}
+async function gradeScan(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const round=s.round,answers=round.questions.map((q,i)=>({n:q.n,text:$('#scan-a-'+i).value})),rev=s.revision;const old=document.createElement('div');while($('#drill-body').firstChild)old.append($('#drill-body').firstChild);const stop=drillBusy('正在逐题判卷',18,s);s.busy=true;drillControls(s);try{const d=await learningAPI('/api/llm/scan/grade',{round_id:round.round_id,answers,dry:DRILL_DRY});if(rev!==s.revision)return;$('#drill-body').innerHTML='<section class="drill-result"><header><b>第 '+esc(d.round)+' 轮</b><span>【新增桶卡】'+esc(d.cards?.n||0)+'　【覆盖】'+esc(d.coverage?.done)+' / '+esc(d.coverage?.total)+'</span></header>'+(DRILL_DRY?'<p class="drill-meta">试运行结果 · 未写入缺口与桶卡</p>':'')+(d.results||[]).map(r=>{const cause=r.ok===true?'—':['推链断','桶没记','措辞偏','无法判'].includes(r.cause)?r.cause:'无法判';return '<article class="drill-question"><h3>'+esc(r.n)+'. '+esc(r.q)+'</h3><b class="cause" data-cause="'+cause+'">'+(cause==='无法判'?'无法判':r.ok?'对':'错')+' · '+cause+'</b><p>【作答】'+esc(r.answer)+'</p><p>【补救】'+esc(r.fix)+'</p><div class="original-text">【参考答案】'+esc(r.ref)+'</div><p class="drill-meta">【出处】'+esc(r.src)+'</p>'+(r.diff?diffHTML(r.diff):'')+'</article>';}).join('')+'</section><button class="b go" id="drill-finish">完成本轮</button>';s.round=null;$('#drill-finish').onclick=()=>finishDrill(s);}catch(e){if(rev===s.revision){$('#drill-body').replaceChildren(...old.childNodes);drillError(e,s);}}finally{stop();s.busy=false;drillControls(s);}}
+function drawCard(s=DR){const $=drillQuery(s),$$=selector=>[...s.body.querySelectorAll(selector)];const c=s.cards[s.at],d=s.counts;$('#drill-body').innerHTML='<p class="drill-meta">【到期】'+esc(d.due)+'　【未背】'+esc(d.fresh)+'　【总数】'+esc(d.total)+'</p>';if(!c){$('#drill-body').innerHTML+='<h3>'+ (s.cards.length?'本轮完成':'暂无可抽卡片')+'</h3><p>五张一轮，到这里就可以停。</p><button class="b go" id="drill-finish">返回今日单元</button>';$('#drill-finish').onclick=()=>finishDrill(s);return;}$('#drill-body').innerHTML+='<div class="drill-card"><p class="drill-meta">'+(s.at+1)+' / '+s.cards.length+'　【科目】'+esc(c.subject)+(c.unverified?'　<span class="cause" data-cause="措辞偏">未核 · 对照教材后再背</span>':'')+'</p><h3>'+esc(c.q)+'</h3><button class="b" id="card-flip">翻面 · 查看答案</button><div id="card-answer" hidden></div></div><div class="drill-rate">'+['记得','模糊','忘了'].map(x=>'<button class="b" disabled data-rate="'+x+'">'+x+'</button>').join('')+'</div><p id="card-next-date" class="drill-next" aria-live="polite"></p><button class="b go" id="card-next" hidden>下一张</button>';$('#card-flip').onclick=()=>{$('#card-answer').textContent=c.a;$('#card-answer').className='original-text';$('#card-answer').hidden=false;$('#card-flip').hidden=true;$$('[data-rate]').forEach(b=>b.disabled=false);};$$('[data-rate]').forEach(b=>b.onclick=async()=>{clearDrillError(s);const rev=s.revision;s.busy=true;drillControls(s);$$('[data-rate]').forEach(x=>x.disabled=true);try{const r=await learningAPI('/api/unit/drill/cards/rate',{id:c.id,result:b.dataset.rate});if(rev!==s.revision)return;$('#card-next-date').textContent='【下次复习】'+r.next+' · '+r.interval+' 天后'+(DRILL_DRY?'（试运行）':'');$('#card-next').hidden=false;$('#card-next').textContent=s.at===s.cards.length-1?'完成本轮':'下一张';}catch(e){drillError(e,s);$$('[data-rate]').forEach(x=>x.disabled=false);}finally{s.busy=false;drillControls(s);}});$('#card-next').onclick=()=>{s.at++;drawCard(s);};}
 
 /* ---------- 动态行 ---------- */
 function pointRow(v={}){
@@ -2734,6 +2891,7 @@ $('#btn-start').onclick=async()=>{
   try{await clockStudyEntry();if(!$('#st-run').hidden&&document.body.dataset.view==='unit')$('#f-chain').focus({preventScroll:true});}catch(e){if(e.name!=='AbortError')toast('入场动画已结束');}finally{studyStarting=false;}
 };
 function startUnit(){
+  courtRevision++;$('#btn-probe').disabled=false;
   wipe();save({cur:cur});
   $('#points').innerHTML='';$('#cards').innerHTML='';$('#oppo').innerHTML='';
   ['f-chapter','f-chain','f-fal','f-break','f-next'].forEach(i=>$('#'+i).value='');
@@ -2746,29 +2904,23 @@ function startUnit(){
 }
 
 /* ---------- 证伪对手 ---------- */
+let courtRevision=0;
 $('#btn-probe').onclick=async()=>{
-  const chain=$('#f-chain').value.trim();
-  if(!chain){toast('先把链写出来，他才有得撞');return;}
-  const b=$('#btn-probe');b.disabled=true;
-  $('#oppo').innerHTML='<div class="hint"><span class="spin"></span> 对手在找反例…</div>';
-  try{
-    const d=await api('/api/llm/probe',{question:cur?cur.question:'',chain:chain,
-      subject:cur?cur.subject:''});
-    if(d.error){$('#oppo').innerHTML=`<div class="warnbox">${esc(d.error)}</div>`;return;}
-    $('#oppo').innerHTML=`<div class="oppo"><div class="oh">质询记录 / 模型反例
-      <em>${esc(d.meta.label)} · ${d.meta.ms}ms${
-  d.meta.fellback?' · 退避':''}</em></div><div class="probe-body">${md(d.text)}</div>
-      <div class="probe-actions"><button class="b sm" id="op-take"><span>把反例填进「证伪」</span></button><small>模型意见 · 请对照原文核验</small></div>
-      </div>`;
-    $('#op-take').onclick=()=>{
-      const m=/反例[:：]?\s*([\s\S]*?)(?:\n\n|断点)/.exec(d.text);
-      $('#f-fal').value=(m?m[1]:d.text).trim().slice(0,220);
-      const bm=/断点[:：]\s*(.+)/.exec(d.text);
-      if(bm)$('#f-break').value=bm[1].trim();
-      draft();toast('反例已填入，请核验后选择「断了」或「没断」');
-    };
-  }catch(e){$('#oppo').innerHTML=`<div class="warnbox">${esc(String(e))}</div>`;}
-  finally{b.disabled=false;}
+  const chain=$('#f-chain').value.trim();if(!chain){toast('先把链写出来');return;}
+  const rev=++courtRevision,b=$('#btn-probe');b.disabled=true;
+  const panel=$('#st-run .panel');panel.classList.add('court-impact');if(motionAllowed())panel.animate([{transform:'translateY(0)'},{transform:'translateY(6px)',offset:.35},{transform:'translateY(0)'}],{duration:320,easing:'ease-out'});setTimeout(()=>panel.classList.remove('court-impact'),400);
+  $('#oppo').innerHTML='<div class="drill-loading" role="status"><b>质询中 · 正在核对承重句</b>通常约 6 秒，请稍候。</div>';
+  try{const d=await learningAPI('/api/llm/probe',{question:cur?.question||'',chain,subject:cur?.subject||''});if(rev!==courtRevision)return;
+    if(d.broken!==true&&d.broken!==false){$('#oppo').innerHTML='<div class="oppo"><div class="oh">未获得结构化判断 · 模型原文</div><div class="probe-body">'+md(d.text||'未返回内容')+'</div></div>';return;}
+    $('#oppo').innerHTML='<section class="court"><div class="court-top"><b>证词 / TESTIMONY</b><small>'+esc(d.meta?.label||'模型')+' · '+esc(d.meta?.ms||0)+'ms</small></div><ol class="court-lines">'+(Array.isArray(d.chain_lines)&&d.chain_lines.length?d.chain_lines:[chain]).map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol><div class="court-testimony" aria-label="模型证词"></div><div class="drill-actions"><button class="b sm" id="court-skip">显示完整证词</button></div><div class="court-reason" hidden></div></section>';
+    const court=$('#oppo .court'),body=court.querySelector('.court-testimony'),reason=court.querySelector('.court-reason');let skip=!motionAllowed();$('#court-skip').onclick=()=>skip=true;
+    const sentences=Array.isArray(d.testimony)?d.testimony:[d.text||''];const total=sentences.join('').length,delay=Math.min(24,6500/Math.max(1,total));
+    for(const sentence of sentences){const p=document.createElement('p');body.append(p);const chars=Array.from(String(sentence));for(let i=0;i<chars.length;i++){if(rev!==courtRevision||!court.isConnected)return;if(skip){p.textContent=String(sentence);break;}p.textContent+=chars[i];await new Promise(r=>setTimeout(r,delay));}if(!skip)await new Promise(r=>setTimeout(r,180));}
+    $('#court-skip').remove();const seal=document.createElement('span');seal.className='court-seal'+(d.broken?'':' upheld');seal.textContent=d.broken?'异议成立 · 断点':'异议驳回 · 未断';
+    const lines=court.querySelectorAll('li'),target=d.broken&&Number.isInteger(d.break_index)&&lines[d.break_index]?lines[d.break_index]:court.querySelector('.court-lines');target.append(seal);if(d.broken)target.classList.add('broken');if(motionAllowed())seal.animate([{opacity:0,transform:'scale(1.6) rotate(-12deg)'},{opacity:1,transform:'scale(1) rotate(-5deg)'}],{duration:280,easing:'ease-out'});
+    reason.hidden=false;reason.innerHTML='<b>【模型判断依据】</b><p>'+esc(d.break_reason||'未提供')+'</p><p class="drill-meta">这不是你的最终判断；对照原文后，在下方选择「断了 / 没断」。</p><button class="b sm" id="op-take">把证词填进「证伪」</button>';
+    $('#op-take').onclick=()=>{$('#f-fal').value=sentences.join('\n');$('#f-break').value=d.break_reason||'';draft();toast('已填入，待你核验');};
+  }catch(e){if(rev===courtRevision)$('#oppo').innerHTML='<div class="warnbox">'+esc(e.message||e)+'</div>';}finally{if(rev===courtRevision)b.disabled=false;}
 };
 
 /* ---------- 收工 ---------- */
@@ -2888,12 +3040,21 @@ runFields.forEach((f,i)=>{f.id='record-step-'+i;f.addEventListener('focusin',()=
 document.querySelectorAll('.run-index button').forEach((b,i)=>{b.setAttribute('aria-controls',runFields[i].id);b.onclick=()=>{markRunStep(i);runFields[i].scrollIntoView({behavior:motionAllowed()?'smooth':'instant',block:'start'});const input=runFields[i].querySelector('textarea,input,button');input?.focus({preventScroll:true});};});
 let runScrollQueued=false;window.addEventListener('scroll',()=>{if(runScrollQueued||document.querySelector('#st-run').hidden)return;runScrollQueued=true;requestAnimationFrame(()=>{runScrollQueued=false;const active=runFields.reduce((best,f,i)=>Math.abs(f.getBoundingClientRect().top-160)<Math.abs(runFields[best].getBoundingClientRect().top-160)?i:best,0);markRunStep(active);});},{passive:true});
 
+function renderProxy(data){
+  let panel=$('#proxy-panel');if(!panel){panel=document.createElement('section');panel.id='proxy-panel';panel.className='proxy-panel';$('#mods').before(panel);}
+  panel.innerHTML='<div class="dossier-bar"><b>代理连通 / PROXY</b><button class="b sm" id="proxy-refresh">重新探测</button></div><div id="proxy-result"></div>';
+  const out=$('#proxy-result');if(!data){out.textContent='尚未探测';}else{out.innerHTML='<p>【状态】'+esc(data.state)+'　【使用地址】'+esc(data.proxy||'无')+'</p><div class="proxy-ports">'+(data.tried||[]).map(x=>'<p><b>'+esc(x.port)+'</b>　'+(x.ok?'可用 · '+esc(x.ms||0)+'ms':'不可用 · '+esc(x.why||'连接失败'))+'</p>').join('')+'</div>';}
+  $('#proxy-refresh').onclick=async()=>{const b=$('#proxy-refresh');b.disabled=true;out.textContent='正在探测本地代理端口…';try{renderProxy(await learningAPI('/api/llm/proxy?refresh=1'));}catch(e){out.textContent='探测失败 · '+e.message;b.disabled=false;}};
+}
 /* ---------- 模型页 ---------- */
-async function loadModels(){
-  const d=await api('/api/llm/providers');
+async function loadModels(snapshot){
+  const d=snapshot||await api('/api/llm/providers');
+  if(d.error){toast(d.error);return;}
   MODELS=d;
-  if(d.error)toast(d.error);
-  const used=new Set(Object.values(d.roles||{}));
+  renderProxy(d.proxy_probe);
+  const chains=Object.values(d.roles||{}).map(v=>Array.isArray(v)?v:[v]);
+  const used=new Set(chains.map(chain=>chain[0]));
+  const fallback=new Set(chains.flatMap(chain=>chain.slice(1)));
   const lbl=id=>((d.providers||[]).find(x=>x.id===id)||{}).label||id;
   $('#roles').innerHTML=Object.entries(d.roles||{}).map(([r,v])=>{
     const chain=Array.isArray(v)?v:[v], main=chain[0];
@@ -2907,17 +3068,24 @@ async function loadModels(){
   $$('#roles select').forEach(s=>{
     s.onchange=async()=>{
       const trigger=s.nextElementSibling,previous=s.dataset.saved;
-      const roles={};$$('#roles select').forEach(x=>roles[x.dataset.role]=x.value);
+      const roles={[s.dataset.role]:s.value};
       $$('#roles .model-trigger').forEach(x=>x.disabled=true);
-      const r=await api('/api/llm/roles',{roles});
-      if(r.error){s.value=previous;trigger.querySelector('strong').textContent=s.selectedOptions[0]?.textContent||'暂无模型';toast(r.error);$$('#roles .model-trigger').forEach(x=>x.disabled=false);return;}
-      MODELS=r;toast('角色已改，立刻生效');await loadModels();
-      document.querySelector('#roles select[data-role="'+s.dataset.role+'"]')?.nextElementSibling?.focus({preventScroll:true});
+      try{
+        const r=await api('/api/llm/roles',{roles});
+        if(r.error)throw Error(r.error);
+        await loadModels(r);toast('角色已改，立刻生效');
+      }catch(e){
+        s.value=previous;trigger.querySelector('strong').textContent=s.selectedOptions[0]?.textContent||'暂无模型';
+        toast('未确认模型切换成功 · '+(e.message||e));
+      }finally{
+        $$('#roles .model-trigger').forEach(x=>x.disabled=!x.previousElementSibling.options.length);
+        document.querySelector('#roles select[data-role="'+s.dataset.role+'"]')?.nextElementSibling?.focus({preventScroll:true});
+      }
     };enhanceModelSelect(s);
   });
   $('#mods').innerHTML=(d.providers||[]).map(p=>
     `<div class="mod ${used.has(p.id)?'used':''}">
-      <h4>${esc(p.label)}${used.has(p.id)?' <span class="tag t推"><span>在用</span></span>':''}</h4>
+      <h4>${esc(p.label)}${used.has(p.id)?' <span class="tag t推"><span>主用</span></span>':fallback.has(p.id)?' <span class="tag"><span>备选</span></span>':''}</h4>
       <div class="mm">${esc(p.kind)} · ${esc(p.model||'')}</div>
       <div class="nt">${esc(p.note||'')}</div>
       <div class="mf"><button class="b sm" data-t="${p.id}"><span>测一下</span></button>
@@ -2927,10 +3095,11 @@ async function loadModels(){
   $$('#mods [data-t]').forEach(b=>b.onclick=async()=>{
     const id=b.dataset.t,out=$(`[data-r="${id}"]`);
     out.textContent='…';b.disabled=true;
-    const r=await api('/api/llm/test',{id:id});
-    out.textContent=r.error?('✕ '+r.error.slice(0,60)):`✓ ${r.meta.ms}ms · ${r.text}`;
-    out.style.color=r.error?'var(--err)':'var(--ok)';
-    b.disabled=false;});
+    try{
+      const r=await api('/api/llm/test',{id:id});if(r.error)throw Error(r.error);
+      out.textContent=`✓ ${r.meta?.ms??'-'}ms · ${r.text||''}`;out.style.color='var(--ok)';
+    }catch(e){out.textContent='✕ '+String(e.message||e).slice(0,60);out.style.color='var(--err)';}
+    finally{b.disabled=false;}});
 }
 
 
@@ -2960,24 +3129,23 @@ async function loadKB(){
   $('#kb-exglobs').value=(c.exclude_globs||[]).join(', ');
   paintJob(d.job);
 }
+let jobLines=[],jobPolling=false,jobActive=false;
 function paintJob(j){
-  if(!j)return;
-  const box=$('#kb-joblog');
-  box.textContent=(j.lines||[]).join('\n')||'（还没跑过）';
-  box.scrollTop=box.scrollHeight;
-  $('#kb-reindex').disabled=!!j.running;
-  $('#kb-reindex-full').disabled=!!j.running;
-  $('#kb-reindex').querySelector('span').textContent=
-    j.running?`▶ 建库中… ${j.elapsed}s`:'▶ 增量重建';
-  if(j.running&&!jobTimer){
-    jobTimer=setInterval(async()=>{
-      const s=await api('/api/kb/job');paintJob(s);
-      if(!s.running){clearInterval(jobTimer);jobTimer=null;
-        blip(s.code===0?'ok':'err');
-        toast(s.code===0?'索引建好了':'建库失败，看下面日志');
-        loadKB();}
-    },1200);
-  }
+  if(!j)return;jobActive=!!j.running;
+  const incoming=j.lines||[];let overlap=0;for(let n=Math.min(jobLines.length,incoming.length);n>0;n--){if(jobLines.slice(-n).every((x,i)=>x===incoming[i])){overlap=n;break;}}
+  jobLines.push(...incoming.slice(overlap));if(jobLines.length>1000)jobLines=jobLines.slice(-1000);
+  const box=$('#kb-joblog'),nearBottom=box.scrollHeight-box.scrollTop-box.clientHeight<40;
+  box.textContent=jobLines.join('\n')||'等待任务日志…';if(nearBottom)box.scrollTop=box.scrollHeight;
+  $('#kb-jobstatus').textContent=j.running?'重建中 · '+(j.elapsed||0)+' 秒':j.code===0?'重建完成 · 成功':j.code!=null?'重建失败 · 退出码 '+j.code:'尚未运行';
+  $('#kb-jobstatus').style.borderLeftColor=j.running?'var(--moon)':j.code===0?'var(--cyan)':j.code!=null?'var(--err)':'var(--hot)';
+  $('#kb-reindex').disabled=!!j.running;$('#kb-reindex-full').disabled=!!j.running;$('#kb-reindex span').textContent=j.running?'重建进行中…':'▶ 增量重建';
+  if(jobActive&&!jobTimer&&!jobPolling)jobTimer=setTimeout(pollJob,1000);
+}
+async function pollJob(){jobTimer=null;jobPolling=true;try{const j=await learningAPI('/api/kb/job');paintJob(j);}catch(e){$('#kb-jobstatus').textContent='日志连接中断，正在重试 · '+e.message;}finally{jobPolling=false;if(jobActive&&!jobTimer)jobTimer=setTimeout(pollJob,1000);}}
+async function beginReindex(full=false){
+  if(full&&!confirm('全量重建会重新嵌入整库，继续？'))return;
+  $('#kb-reindex').disabled=true;$('#kb-reindex-full').disabled=true;$('#kb-jobstatus').textContent='正在启动重建…';jobLines=[];$('#kb-joblog').textContent='提交重建请求…';
+  try{const r=await learningAPI('/api/kb/reindex',{full});paintJob(r.job||{running:true,lines:[],elapsed:0});if(jobTimer){clearTimeout(jobTimer);jobTimer=null;}await pollJob();}catch(e){jobActive=false;$('#kb-jobstatus').textContent='未启动 · '+e.message;$('#kb-reindex').disabled=false;$('#kb-reindex-full').disabled=false;}
 }
 $('#kb-newgo').onclick=async()=>{
   const n=$('#kb-newname').value.trim(); if(!n)return;
@@ -3009,38 +3177,51 @@ $('#kb-savecfg').onclick=async()=>{
   if(r.error){blip('err');toast(r.error);return;}
   blip('ok');toast('规则存好了，重建后生效');
 };
-$('#kb-reindex').onclick=async()=>{
-  const r=await api('/api/kb/reindex',{});
-  if(r.error){blip('err');toast(r.error);return;} paintJob(r.job||{running:true,lines:[]});
-};
-$('#kb-reindex-full').onclick=async()=>{
-  if(!confirm('全量重建会把整库重新嵌入一遍，13000 块大概要几分钟。继续？'))return;
-  const r=await api('/api/kb/reindex',{full:true});
-  if(r.error){blip('err');toast(r.error);return;} paintJob(r.job||{running:true,lines:[]});
-};
+$('#kb-reindex').onclick=()=>beginReindex(false);
+$('#kb-reindex-full').onclick=()=>beginReindex(true);
 
 /* ---------- 背景音乐：网易云外链 ---------- */
 (function music(){
-  const KEY='kb.music';
-  const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){return null}};
-  function mount(cfg){
-    if(!cfg||!cfg.id){$('#mu-box').innerHTML='';return;}
-    const h=cfg.type==='2'?430:86;
-    $('#mu-box').innerHTML=`<iframe frameborder="no" marginwidth="0" marginheight="0"
-      height="${h}" src="https://music.163.com/outchain/player?type=${encodeURIComponent(cfg.type)}&id=${encodeURIComponent(cfg.id)}&auto=0&height=${h-30}"
-      referrerpolicy="no-referrer"></iframe>`;
+  const KEY='kb.music.link',toggle=$('#mu-toggle'),panel=$('#mu-panel'),box=$('#mu-box');let pressTimer=null,longPress=false,current=null;
+  box.className='background-player';document.body.append(box);toggle.title='音乐：短按打开面板，长按 600ms 粘贴链接';toggle.setAttribute('aria-controls','mu-panel');toggle.setAttribute('aria-expanded','false');
+  panel.querySelector('.mu-hint').textContent='只听音乐，画面默认收起。若没有声音，可临时打开原播放器手动开始，再收起继续听。';
+  const status=document.createElement('p');status.id='mu-status';status.className='drill-meta';status.setAttribute('role','status');panel.append(status);
+  const controls=document.createElement('div');controls.className='drill-actions';controls.innerHTML='<button class="b sm" id="mu-show">无声？手动启动</button><button class="b sm" id="mu-stop">停止播放</button>';panel.append(controls);
+  function hidePicture(){box.classList.remove('player-visible');$('#mu-show').textContent='无声？手动启动';}
+  function show(focus=false){panel.hidden=false;toggle.setAttribute('aria-expanded','true');if(focus){$('#mu-id').focus();$('#mu-id').select();}}
+  toggle.onclick=()=>{if(longPress){longPress=false;return;}panel.hidden=!panel.hidden;if(panel.hidden)hidePicture();toggle.setAttribute('aria-expanded',String(!panel.hidden));};
+  toggle.addEventListener('pointerdown',e=>{if(e.button!==0)return;longPress=false;clearTimeout(pressTimer);toggle.setPointerCapture(e.pointerId);pressTimer=setTimeout(()=>{longPress=true;show(true);},600);});
+  for(const name of ['pointerup','pointercancel','lostpointercapture'])toggle.addEventListener(name,()=>clearTimeout(pressTimer));
+  toggle.addEventListener('contextmenu',e=>{e.preventDefault();show(true)});
+  function parseLink(raw){const bv=/BV[0-9A-Za-z]{10}/.exec(raw);if(bv)return {src:'https://player.bilibili.com/player.html?bvid='+bv[0]+'&autoplay=1',raw,provider:'B站'};
+    let u;try{u=new URL(raw)}catch(e){if(/^\d+$/.test(raw))return {src:'https://music.163.com/outchain/player?type='+$('#mu-type').value+'&id='+raw+'&auto=1&height=66',raw,provider:'网易云'};throw Error('请粘贴完整网易云链接、B站链接或 BV 号。');}
+    if(u.protocol!=='https:'&&u.protocol!=='http:')throw Error('链接必须使用 https 或 http');
+    if(u.hostname==='music.163.com'||u.hostname==='y.music.163.com'){const id=new URLSearchParams(u.search||u.hash.split('?')[1]).get('id');if(!id||!/^\d+$/.test(id))throw Error('链接里没有有效歌曲或歌单 ID');const type=(u.pathname+u.hash).includes('playlist')?'0':'2';return {src:'https://music.163.com/outchain/player?type='+type+'&id='+id+'&auto=1&height=66',raw,provider:'网易云'};}
+    if(u.hostname==='b23.tv')return {short:u.href};throw Error('目前支持网易云和 B 站链接。');
   }
-  $('#mu-toggle').onclick=()=>{const p=$('#mu-panel');p.hidden=!p.hidden;if(!p.hidden)blip('click');};
-  $('#mu-go').onclick=()=>{
-    const raw=$('#mu-id').value.trim();
-    const m=/(?:[?&]id=)(\d+)/.exec(raw);
-    const id=m?m[1]:raw.replace(/\D/g,'');
-    if(!id){blip('err');toast('填个 ID 或者直接粘歌单链接');return;}
-    const cfg={type:$('#mu-type').value,id:id};
-    try{localStorage.setItem(KEY,JSON.stringify(cfg))}catch(e){}
-    mount(cfg);blip('ok');toast('挂上了');
-  };
-  const c=load(); if(c){$('#mu-type').value=c.type;$('#mu-id').value=c.id;mount(c);}
+  function mount(cfg,autoplay=true){hidePicture();box.replaceChildren();const frame=document.createElement('iframe');frame.title=cfg.provider+' 背景播放器';frame.src=autoplay?cfg.src:cfg.src.replace('auto=1','auto=0').replace('autoplay=1','autoplay=0');frame.allow='autoplay; fullscreen';frame.referrerPolicy='no-referrer';frame.setAttribute('allowfullscreen','');box.append(frame);current=cfg;status.textContent=cfg.provider+' 音乐已接入 · 画面收起，切换页面可继续听。';}
+  $('#mu-go').onclick=async()=>{const raw=$('#mu-id').value.trim(),btn=$('#mu-go');btn.disabled=true;try{let cfg=parseLink(raw);if(cfg.short){status.textContent='正在展开 B 站短链…';try{const r=await fetch(cfg.short,{redirect:'follow',referrerPolicy:'no-referrer'});cfg=parseLink(r.url);if(cfg.short)throw Error('未展开');}catch(e){throw Error('浏览器无法跨域展开 b23 短链；请在 B 站打开后复制含 BV 号的完整链接。');}}mount(cfg);try{localStorage.setItem(KEY,raw)}catch(e){}}catch(e){status.textContent=e.message;}finally{btn.disabled=false;}};
+  $('#mu-show').onclick=()=>{if(!current){status.textContent='请先挂载链接';return;}box.classList.toggle('player-visible');$('#mu-show').textContent=box.classList.contains('player-visible')?'收起画面 · 继续听':'无声？手动启动';};
+  $('#mu-stop').onclick=()=>{box.replaceChildren();box.classList.remove('player-visible');current=null;$('#mu-show').textContent='无声？手动启动';status.textContent='已停止；上次链接保留。';};
+  try{let raw=localStorage.getItem(KEY);if(!raw){const legacy=JSON.parse(localStorage.getItem('kb.music')||'null');if(legacy?.id)raw='https://music.163.com/'+(legacy.type==='0'?'playlist':'song')+'?id='+legacy.id;}if(raw){$('#mu-id').value=raw;status.textContent='已恢复上次链接；点击「挂上」开始播放。';}}catch(e){}
+})();
+
+
+/* Anki: immutable 2026-09-22 archive + presentation-only package; no sync API. */
+(function ankiWorkspace(){
+  const archive={"front":"\u003csection class=\"yan-card\">\n  \u003cdiv class=\"yan-kicker\">RECALL / \u53e3\u8154\u7ec4\u7ec7\u75c5\u7406\u5b66\u003c/div>\n  \u003cdiv class=\"yan-heading\">\u003cspan>\u56de\u5fc6\u76ee\u6807\u003c/span>\u003csmall>QUESTION\u003c/small>\u003c/div>\n  \u003cdiv class=\"yan-question\">{{\u95ee\u9898}}\u003c/div>\n  \u003cdiv class=\"yan-prompt\">\u5148\u56de\u5fc6\uff0c\u518d\u7ffb\u9762\u6838\u5bf9\u3002\u003c/div>\n\u003c/section>\n","back":"\u003csection class=\"yan-card yan-back\">\n  \u003cdiv class=\"yan-kicker\">RECALL / \u53e3\u8154\u7ec4\u7ec7\u75c5\u7406\u5b66\u003c/div>\n  \u003cdiv class=\"yan-question yan-question-small\">{{\u95ee\u9898}}\u003c/div>\n  \u003cdiv class=\"yan-heading\" id=\"answer\">\u003cspan>\u6838\u5bf9\u7b54\u6848\u003c/span>\u003csmall>ANSWER\u003c/small>\u003c/div>\n  \u003cdiv class=\"yan-answer\">{{\u7b54\u6848}}\u003c/div>\n  {{#\u7406\u89e3\u6302\u94a9}}\u003cdiv class=\"yan-hook\">\u003cb>\u3010\u7406\u89e3\u6302\u94a9\u3011\u003c/b>\u003cdiv>{{\u7406\u89e3\u6302\u94a9}}\u003c/div>\u003c/div>{{/\u7406\u89e3\u6302\u94a9}}\n  \u003cfooter class=\"yan-source\">\n    {{#\u6765\u6e90}}\u003cdiv>\u003cb>\u3010\u6765\u6e90\u3011\u003c/b>{{\u6765\u6e90}}\u003c/div>{{/\u6765\u6e90}}\n    {{#\u539f\u6807\u7b7e}}\u003cdiv>\u003cb>\u3010\u6807\u7b7e\u3011\u003c/b>{{\u539f\u6807\u7b7e}}\u003c/div>{{/\u539f\u6807\u7b7e}}\n    \u003cp>\u65e2\u6709\u5b66\u4e60\u5305 \u00b7 \u672c\u6b21\u4ec5\u66f4\u65b0\u6837\u5f0f\uff0c\u672a\u9010\u5361\u590d\u6838\u5185\u5bb9\u3002\u003c/p>\n  \u003c/footer>\n\u003c/section>\n","css":".card{--yc-bg:#eef1f8;--yc-ink:#fff;--yc-text:#14203a;--yc-dim:#526078;--yc-line:#cbd3e5;--yc-bar:#dce2eb;--yc-accent:#007d9b;--yc-edge:#438800;margin:0;padding:24px;box-sizing:border-box;background:var(--yc-bg);color:var(--yc-text);font:20px/1.8 \"Microsoft YaHei\",\"PingFang SC\",Arial,sans-serif;text-align:left;overflow-wrap:anywhere}\n.card.nightMode,.nightMode .card,.card.night_mode{--yc-bg:#04050a;--yc-ink:#0c1020;--yc-text:#eef3ff;--yc-dim:#9ba8c5;--yc-line:#1a2140;--yc-bar:#292e40;--yc-accent:#61e2ff;--yc-edge:#b6ff2e}\n.yan-card{max-width:820px;margin:0 auto;border-top:3px solid #2a5cff;padding:28px 0 0}\n.yan-kicker{color:var(--yc-dim);font-size:11px;letter-spacing:.18em;margin-bottom:24px}\n.yan-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 15px;background:var(--yc-bar);border-left:3px solid var(--yc-edge);font-size:14px;font-weight:bold;margin:0 0 24px}\n.yan-heading small{font-size:10px;letter-spacing:.18em;color:var(--yc-dim)}\n.yan-question{font-size:30px;line-height:1.65;font-weight:700;margin:26px 0 42px;white-space:pre-wrap}\n.yan-question-small{font-size:23px;margin:0 0 26px}\n.yan-prompt{font-size:13px;color:var(--yc-dim);border-top:1px solid var(--yc-line);padding-top:16px}\n.yan-answer{border-left:2px solid var(--yc-accent);padding:14px 20px;background:var(--yc-ink);white-space:pre-wrap}\n.yan-hook{margin-top:28px;padding:18px 0;border-top:1px solid var(--yc-line);font-size:17px;white-space:pre-wrap}\n.yan-hook b{font-size:12px;color:var(--yc-accent)}\n.yan-source{border-top:1px solid var(--yc-line);margin-top:28px;padding-top:16px;color:var(--yc-dim);font-size:12px;line-height:1.8;white-space:pre-wrap}\n.yan-source b{display:inline-block;min-width:64px;font-weight:normal}.yan-source p{font-size:11px;margin-top:14px}\n.yan-card img{max-width:100%;height:auto}.yan-card table{max-width:100%;font-size:inherit}\n@media(max-width:480px){.card{padding:18px;font-size:18px}.yan-card{padding-top:20px}.yan-question{font-size:25px;margin-bottom:32px}.yan-question-small{font-size:20px;margin:0 0 22px}.yan-answer{padding:12px 14px}.yan-heading{padding:8px 12px}}\n","cards":[{"\u95ee\u9898":"\u3010\u793a\u4f8b\u3011\u63a8\u3001\u534a\u3001\u6876\u5206\u522b\u8868\u793a\u4ec0\u4e48\uff1f","\u7b54\u6848":"\u63a8\uff1a\u53ef\u7531\u673a\u5236\u63a8\u5bfc\uff1b\u534a\uff1a\u5171\u6027\u53ef\u63a8\uff0c\u7ec6\u8282\u9700\u8bb0\u5fc6\uff1b\u6876\uff1a\u540d\u79f0\u3001\u4f4d\u7f6e\u6216\u6570\u5b57\u7b49\u8bb0\u5fc6\u951a\u70b9\u3002","\u6765\u6e90":"\u9879\u76ee\u539f\u521b\u4f7f\u7528\u793a\u4f8b\uff08\u975e\u6559\u6750\u539f\u53e5\uff09","\u7406\u89e3\u6302\u94a9":"\u5148\u5224\u65ad\u80fd\u5426\u63a8\u5bfc\uff0c\u518d\u9009\u62e9\u63a8\u7406\u7ec3\u4e60\u6216\u5361\u7247\u590d\u4e60\u3002","\u539f\u6807\u7b7e":"\u793a\u4f8b/\u5b66\u4e60\u65b9\u6cd5"}],"packageBase64":""};
+  const dialog=$('#anki-dialog'),select=$('#anki-card-select'),frame=$('#anki-preview-frame');let at=0,back=false,opener=null;
+  function renderTemplate(template,card){return template.replace(/{{#([^}]+)}}([\s\S]*?){{\/\1}}/g,(_,key,body)=>card[key]?body:'').replace(/{{([^}]+)}}/g,(_,key)=>esc(card[key]||'').replace(/\n/g,'<br>'));}
+  function draw(){const card=archive.cards[at],dark=document.documentElement.dataset.theme!=='light';frame.srcdoc='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+archive.css+'</style></head><body class="card'+(dark?' nightMode':'')+'">'+renderTemplate(back?archive.back:archive.front,card)+'</body></html>';frame.title='Anki 卡片'+(back?'背面':'正面')+'预览';select.value=String(at);$('#anki-position').textContent=(at+1)+' / '+archive.cards.length+' · '+(back?'背面 / 答案与来源':'正面 / 先回忆');$('#anki-flip').textContent=back?'返回正面':'翻面 · 核对答案';$('#anki-prev').disabled=at===0;$('#anki-next').disabled=at===archive.cards.length-1;}
+  archive.cards.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=String(i+1).padStart(2,'0')+' · '+c['问题'];select.append(o);});
+  $('#anki-open').onclick=()=>{opener=document.activeElement;draw();dialog.showModal();};
+  function close(){dialog.close();opener?.focus({preventScroll:true});}
+  $('#anki-close').onclick=close;dialog.addEventListener('cancel',e=>{e.preventDefault();close();});select.onchange=()=>{at=Number(select.value);back=false;draw();};$('#anki-flip').onclick=()=>{back=!back;draw();};$('#anki-prev').onclick=()=>{if(at>0){at--;back=false;draw();}};$('#anki-next').onclick=()=>{if(at<archive.cards.length-1){at++;back=false;draw();}};
+  new MutationObserver(()=>{if(dialog.open)draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  function download(data,name,type){const url=URL.createObjectURL(new Blob([data],{type})),link=document.createElement('a');link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('#anki-status').textContent='已发起下载：'+name+'。尚未导入或同步。';}
+  $('#anki-package').disabled=true;
+  $('#anki-package').title='公开版本不包含个人卡包；可下载下方卡面模板自行制作。';
+  $$('[data-anki-file]').forEach(b=>b.onclick=()=>{const key=b.dataset.ankiFile;download(archive[key],{front:'正面.html',back:'背面.html',css:'样式.css'}[key],key==='css'?'text/css;charset=utf-8':'text/html;charset=utf-8');});
 })();
 
 /* ---------- 恢复 ---------- */
