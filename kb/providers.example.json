@@ -1,0 +1,23 @@
+{
+  "providers": {
+    "ollama": {
+      "kind": "ollama",
+      "base": "http://127.0.0.1:11434",
+      "model": "qwen3:14b",
+      "label": "本机 Ollama"
+    },
+    "openai-example": {
+      "kind": "openai",
+      "base": "https://api.example.com/v1",
+      "key": "",
+      "model": "YOUR_MODEL",
+      "label": "自定义兼容接口"
+    }
+  },
+  "roles": {
+    "quick": "ollama",
+    "answer": "ollama",
+    "probe": "ollama",
+    "local": "ollama"
+  }
+}

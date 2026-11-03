@@ -1,0 +1,29 @@
+# Credentials and local configuration
+**/config.json
+**/providers.json
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+# Private corpus, generated data and runtime files
+/data/
+**/store/
+**/__pycache__/
+.venv/
+*.py[cod]
+*.log
+*.apkg
+*.colpkg
+*.db
+*.sqlite*
+*.mp3
+*.wav
+*.mp4
+*.webm
+_备份_*/
+
+# Generated source catalogs and personal learning memory stay local.
+**/.local/
+**/backups/
+**/*.sqlite3*

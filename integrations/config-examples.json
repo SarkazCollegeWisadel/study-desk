@@ -1,0 +1,35 @@
+{
+  "note": "Examples only; select the verified client version. Replace absolute path placeholders before merging. No provider credentials are required. Do not import this wrapper as application configuration.",
+  "dsh_mcp_client_0_2_1_rc_2_plugin_config_only": {
+    "transport": "stdio",
+    "serverName": "medical_kb",
+    "command": "REPLACE_WITH_EXISTING_PYTHON_ABSOLUTE_PATH",
+    "args": ["REPLACE_WITH_PROJECT_ABSOLUTE_PATH/integrations/medical_kb_mcp.py"],
+    "toolCallTimeoutMs": 15000,
+    "failOnStartupError": false,
+    "reconnect": {"enabled": false}
+  },
+  "opencode_v1_config_fragment": {
+    "mcp": {
+      "medical_kb": {
+        "type": "local",
+        "command": ["REPLACE_WITH_EXISTING_PYTHON_ABSOLUTE_PATH", "REPLACE_WITH_PROJECT_ABSOLUTE_PATH/integrations/medical_kb_mcp.py"],
+        "enabled": false,
+        "timeout": 15000
+      }
+    }
+  },
+  "opencode_v2_config_fragment": {
+    "mcp": {
+      "servers": {
+        "medical_kb": {
+          "type": "local",
+          "command": ["REPLACE_WITH_EXISTING_PYTHON_ABSOLUTE_PATH", "REPLACE_WITH_PROJECT_ABSOLUTE_PATH/integrations/medical_kb_mcp.py"],
+          "disabled": true,
+          "protocol": "legacy",
+          "timeout": {"startup": 15000, "catalog": 15000, "execution": 15000}
+        }
+      }
+    }
+  }
+}
