@@ -1,0 +1,38 @@
+{
+  "evidence_reasoning/identifier_filter.py": {
+    "origin": "Original identifier-evidence helper from this project",
+    "license": "MIT",
+    "third_party_code_embedded": false
+  },
+  "evidence_reasoning/answer_contract.py": {
+    "origin": "Original answer-structure validator from this project",
+    "license": "MIT",
+    "third_party_code_embedded": false
+  },
+  "evidence_reasoning/test_contract.py": {
+    "origin": "Original synthetic reference/answer contract tests",
+    "license": "MIT",
+    "third_party_code_embedded": false
+  },
+  "evidence_reasoning/test_identifier_filter.py": {
+    "origin": "Original synthetic identifier cases",
+    "license": "MIT",
+    "third_party_code_embedded": false
+  },
+  "examples/": {
+    "origin": "Original synthetic A/B-condition fixture; no real evidence IDs",
+    "license": "MIT"
+  },
+  "research/REPORT.md": {
+    "origin": "Original research summary; private evidence reduced to aggregate counts and explicit limitations",
+    "license": "MIT"
+  },
+  "runtime": {
+    "name": "Python standard library only",
+    "bundled": false,
+    "source": "https://docs.python.org/3/license.html"
+  },
+  "LICENSE": {
+    "origin": "Existing public study-desk MIT license, copyright notice retained unchanged"
+  }
+}

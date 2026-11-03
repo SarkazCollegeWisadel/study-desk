@@ -1,0 +1,70 @@
+{
+  "candidate_version": 3,
+  "visibility": "PUBLIC_RELEASE_COMPONENT",
+  "files": [
+    {
+      "path": "evidence_reasoning/__init__.py",
+      "sha256": "9f63261cf449cfc6835b71411e14564751cb919414b28e813948a2915ac39cd2",
+      "bytes": 71
+    },
+    {
+      "path": "evidence_reasoning/answer_contract.py",
+      "sha256": "02cb3e69d757221c6b966e419bc4e29327c0a43336b6086ae63869e3177f284d",
+      "bytes": 3002
+    },
+    {
+      "path": "evidence_reasoning/identifier_filter.py",
+      "sha256": "9c6df622ff0403e9e077a4b1397ffd7d76b7ac5ecd7600e7d26410022b59b72f",
+      "bytes": 616
+    },
+    {
+      "path": "evidence_reasoning/test_contract.py",
+      "sha256": "30d8bb1c71f09f683964a763494d98008a53a33dc38aefe47d5e6c1ee19b7286",
+      "bytes": 4005
+    },
+    {
+      "path": "evidence_reasoning/test_identifier_filter.py",
+      "sha256": "01ae54cb973c8f86ddc711f9accdb2a54837b506721d2c667042c0f0ed0ac002",
+      "bytes": 1154
+    },
+    {
+      "path": "examples/run_demo.py",
+      "sha256": "241b8954d65a5c736dfa3be003ae1f9330add8e5971cc414ae4ddd11ba1b9a45",
+      "bytes": 597
+    },
+    {
+      "path": "examples/synthetic_case.json",
+      "sha256": "24f966e4134656aca64d19f0c22a401619fe1436455a7b4a424b07b52cde1b5c",
+      "bytes": 917
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "b1a7d1fc80518721e8cc225f8d913309ca7f1bf678f9b6c74db909d0f79c53a9",
+      "bytes": 1077
+    },
+    {
+      "path": "README.md",
+      "sha256": "0236b6ccf4b4711ae2fd096ce0c56c39be4679a17d811a8e301f5417d5fd2e18",
+      "bytes": 1431
+    },
+    {
+      "path": "research/REPORT.md",
+      "sha256": "857608cbef426c58ebb32331427e49f7bbe5b31497bc3d16fba8651ae8e98ec5",
+      "bytes": 4809
+    },
+    {
+      "path": "SOURCE_LICENSES.json",
+      "sha256": "a50feef577acafc2a5f4aef4127dc9ee7944b55df26d7312aa58abf0bf4f8126",
+      "bytes": 1259
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "03b09d3956a2ae2a45d53e8837bc761ea3e4e2634a7d85df577711cd95227e24",
+      "bytes": 575
+    }
+  ],
+  "content_file_count": 12,
+  "total_including_manifest": 13,
+  "synthetic_test_case_count": 16,
+  "publication_scope": "addons/evidence-reasoning/"
+}

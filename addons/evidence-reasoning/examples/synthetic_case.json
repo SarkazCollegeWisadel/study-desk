@@ -1,0 +1,38 @@
+{
+  "fixture_kind": "synthetic_only",
+  "packet": {
+    "case_id": "example",
+    "required_status": "partial",
+    "evidence_mode": "supplied_evidence_reasoning_only",
+    "queries": [
+      {
+        "results": [
+          {
+            "hit_id": "fixture-A",
+            "provided": true
+          }
+        ]
+      }
+    ]
+  },
+  "answer": {
+    "case_id": "example",
+    "status": "partial",
+    "answer": "Only condition A has supplied evidence; condition B remains unsupported.",
+    "claims": [
+      {
+        "id": "c1",
+        "text": "Condition A is covered by the synthetic excerpt.",
+        "type": "source_statement",
+        "hit_ids": [
+          "fixture-A"
+        ],
+        "justification": "The explicitly supplied synthetic excerpt concerns condition A."
+      }
+    ],
+    "limitations": [
+      "Condition B has no supplied evidence."
+    ],
+    "formal_school_scope_asserted": false
+  }
+}
